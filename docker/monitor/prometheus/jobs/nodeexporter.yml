@@ -1,0 +1,4 @@
+- targets:
+    - "nodeexporter:9100"
+  labels:
+    hostname: Server
