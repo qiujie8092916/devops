@@ -4,9 +4,9 @@ networks:
   main-net:
     name: docker_default
     driver: bridge
-  monitor-net:
-    name: monitor_monitor-net
-    external: true
+  # monitor-net:
+  #   name: monitor_monitor-net
+  #   external: true
 
 services:
   mysql:
@@ -36,7 +36,7 @@ services:
     restart: always
     networks:
       - main-net
-      - monitor-net
+      # - monitor-net
     volumes:
       - type: bind
         source: ./nginx/nginx.conf
@@ -53,6 +53,9 @@ services:
     ports:
       - '80:80'
       # - '443:443'
-  ivelly:
+  ivelly-fe:
     image: ivelly:latest
+    restart: always
+  yuque_hook:
+    image: yuque_hook:latest
     restart: always
