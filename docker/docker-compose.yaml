@@ -54,8 +54,8 @@ services:
       - '80:80'
       # - '443:443'
   ivelly-fe:
-    image: ivelly:latest
+    image: qiujie8092916/ivelly-fe:latest
     restart: always
   yuque_hook:
-    image: yuque_hook:latest
+    image: qiujie8092916/yuque_hook:latest
     restart: always
