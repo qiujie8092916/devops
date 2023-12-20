@@ -53,9 +53,18 @@ services:
     ports:
       - '80:80'
       # - '443:443'
+  frps:
+    container_name: frps
+    image: snowdreamtech/frps
+    restart: always
+    volumes:
+        - './frp/frps.ini:/etc/frp/frps.ini'
+    ports:
+      - '6000:6000'
+      - '7000-7010:7000-7010'
   ivelly-fe:
     image: qiujie8092916/ivelly-fe:latest
     restart: always
-  yuque_hook:
-    image: qiujie8092916/yuque_hook:latest
+  hook:
+    image: qiujie8092916/hook:latest
     restart: always
