@@ -1,4 +1,4 @@
-nginx/html
+/docker/nginx/html
 data/mysql
 log/nginx
 .env
