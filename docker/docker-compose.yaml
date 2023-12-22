@@ -34,17 +34,21 @@ services:
   nginx:
     image: 'nginx:1.23.0'
     restart: always
+    container_name: nginx
     networks:
       - main-net
       # - monitor-net
+    environment:
+      - TZ=Asia/Shanghai
     volumes:
       - type: bind
         source: ./nginx/nginx.conf
         target: /etc/nginx/nginx.conf
       - ./nginx/sites-enabled:/etc/nginx/sites-enabled
-      - ./nginx/html:/usr/share/nginx/html
+      # - ./nginx/html:/usr/share/nginx/html
+      - ./nginx/html:/etc/nginx/html
       - ./nginx/key:/etc/nginx/key
-      - /data/logs/nginx:/var/log/nginx
+      - ./nginx/logs:/var/log/nginx
     healthcheck:
       test: [ 'CMD', 'curl', '--fail', 'http://nginx/server-status' ]
       interval: 1m30s

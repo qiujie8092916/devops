@@ -6,3 +6,4 @@ log/nginx
 .vscode
 # OS
 .DS_Store
+/docker/nginx/logs
